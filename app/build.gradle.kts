@@ -5,13 +5,13 @@ plugins {
 android {
     namespace = "com.example.foodplanner"
     compileSdk {
-        version = release(36)
+        version = release(31)
     }
 
     defaultConfig {
         applicationId = "com.example.foodplanner"
-        minSdk = 36
-        targetSdk = 36
+        minSdk = 26
+        targetSdk = 31
         versionCode = 1
         versionName = "1.0"
 

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".LoginActivity"
+    android:id="@+id/login">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/playfair_display"
+        android:text="WeeklyBite"
+        android:textColor="#2E7D32"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="133dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Moins de stress, plus de saveurs."
+        android:textColor="#666666"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="215dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#2E7D32"
+        android:text="Se connecter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+    <TextView
+        android:id="@+id/tvRegisterLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:text="Pas de compte ? S'inscrire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
