@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FoodPlanner</string>
+    <string name="appName">WeeklyBite</string>
+    <string name="slogan">Moins de stress, plus de saveurs.</string>
+    <string name="connexion">Se connecter</string>
+    <string name="inscription">Pas de compte ? S\'inscrire</string>
+    <string name="tvInscription">Créer un compte</string>
 </resources>

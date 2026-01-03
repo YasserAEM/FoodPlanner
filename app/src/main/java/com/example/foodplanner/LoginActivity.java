@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         if(email.equals("admin@test.com") && password.equals("1234")) {
             Toast.makeText(this, "Connexion réussie", Toast.LENGTH_SHORT).show();
             // Redirection vers l'écran principal
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         } else {
