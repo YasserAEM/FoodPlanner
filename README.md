@@ -9,6 +9,17 @@
 
 &rarr;  API nutritionnelles, stockage local, génération automatique de listes de courses
 
+# UserData:
+- Nom d'utilisateur
+- Email
+- Mot de passe
+- Age
+- Sexe : femme / homme
+- Préférences alimentaires
+- Restrictions
+- Poids (kg)
+- Taille (cm)
+
 
 ## APIs utilisées
 ### TheMealDB
