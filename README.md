@@ -21,29 +21,26 @@ Gives nutritional facts about a product from it's barcode
 ## JSON retourné par notre serveur
 ``` 
 {
-    id: str
-    name: str
-    category: str
-    area: str
-    instructions: str
-    tags: [str]
-    ytvideo: str
+    id: str,
+    name: str,
+    category: str,
+    area: str,
+    instructions: str,
+    tags: [str],
+    photo: str,
+    ytVideo: str,
     ingredients: [
         {
-            name: str
-            amount: int
-            unit: str
+            ingredient: str,
+            measure: str
         }
-    ]
-    nutrition: {
-        calories: int
-        fats: int
-        carbs: int
-        proteins: int
-    }
+    ],
+    calories: int,
+    fats: int,
+    carbs: int,
+    proteins: int
 }
 ```
-
 ## Formule de calcul de BMR (basal metabolic rate)
 
 *Mifflin-St Jeor Equation*:
