@@ -18,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tvInscription"
-            android:textSize="28sp"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/darkGreen"
             android:layout_marginBottom="24dp"
             android:fontFamily="@font/playfair_display"/>
 
