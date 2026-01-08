@@ -36,10 +36,8 @@ Gives nutritional facts about a product from it's barcode
     name: str,
     category: str,
     area: str,
-    instructions: str,
     tags: [str],
-    photo: str,
-    ytVideo: str,
+    instructions: str,
     ingredients: [
         {
             ingredient: str,
@@ -49,7 +47,9 @@ Gives nutritional facts about a product from it's barcode
     calories: int,
     fats: int,
     carbs: int,
-    proteins: int
+    proteins: int,
+    photo: str,
+    ytVideo: str
 }
 ```
 ## Formule de calcul de BMR (basal metabolic rate)
@@ -60,3 +60,44 @@ Gives nutritional facts about a product from it's barcode
     Femmes: BMR = 10W + 6.25H - 5A - 161
 
 **W**: poids en kg,   **H**: taille en cm,   **A**: âge
+
+
+### Usage de la classe MealService
+
+```
+MealService mealService = new MealService(this);
+//....
+btnEvent.setOnClickListener(v -> {
+    mealService.getMealById("53047", new RequestListener<MealModel>() {
+        @Override
+        public void onError(String message) {
+            Log.e("Volley", "Error while requesting meal by ID");
+        }
+        @Override
+        public void onResponse(MealModel meal) {
+            try {
+                Log.d("Volley", "Response: " + meal);
+            } catch (Exception e) {
+                Log.e("Volley", "Error while parsing response");
+                throw new RuntimeException(e);
+            }
+        }
+    });
+
+    mealService.getMeals(new RequestListener<ArrayList<MealModel>>() {
+        @Override
+        public void onError(String message) {
+            Log.e("Volley", "Error while requesting meals");
+        }
+        @Override
+        public void onResponse(ArrayList<MealModel> response) {
+            try {
+                Log.d("Volley", "Response: " + response.get(0));
+            } catch (Exception e) {
+                Log.e("Volley", "Error while parsing response");
+                throw new RuntimeException(e);
+            }
+        }
+    });
+});
+```

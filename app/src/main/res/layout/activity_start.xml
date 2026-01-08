@@ -12,10 +12,10 @@
     android:padding="24dp">
 
     <ImageView
-        android:ignore="MissingConstraints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/weeklybite"/>
+<!--    android:ignore="MissingConstraints"-->
 
 
     <Button
@@ -30,7 +30,7 @@
         android:textSize="18sp"
 
         android:textStyle="bold"
-        android:layout_marginLeft=""
+        android:layout_marginLeft="0dp"
         />
 
 </LinearLayout>
