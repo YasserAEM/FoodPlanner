@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> loginUser());
 
         tvRegisterLink.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             startActivity(intent);
         });
     }
@@ -65,7 +65,6 @@ public class LoginActivity extends AppCompatActivity {
         // Simulation de réussite pour l'instant :
         if(email.equals("admin@test.com") && password.equals("1234")) {
             Toast.makeText(this, "Connexion réussie", Toast.LENGTH_SHORT).show();
-            // Redirection vers l'écran principal
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
