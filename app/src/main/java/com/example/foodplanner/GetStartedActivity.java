@@ -9,11 +9,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class GetStartedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        if (fAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(GetStartedActivity.this, MainActivity.class);
+        }
+
         setContentView(R.layout.activity_start);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.start), (v, insets) -> {

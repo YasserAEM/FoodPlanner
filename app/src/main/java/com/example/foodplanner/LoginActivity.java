@@ -15,6 +15,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.foodplanner.backend.MealService;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import org.jspecify.annotations.NonNull;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -60,16 +65,16 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // TODO: Vérifier les identifiants via Firebase, SQLite ou une API
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
-        // Simulation de réussite pour l'instant :
-        if(email.equals("admin@test.com") && password.equals("1234")) {
-            Toast.makeText(this, "Connexion réussie", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            Toast.makeText(this, "Erreur d'authentification", Toast.LENGTH_SHORT).show();
-        }
+        fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener( (@NonNull Task<AuthResult> task) -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(LoginActivity.this, "Connexion réussie", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(LoginActivity.this, "Erreur d'authentification", Toast.LENGTH_SHORT).show();
+        }});
     }
 }

@@ -68,6 +68,7 @@ Gives nutritional facts about a product from it's barcode
 MealService mealService = new MealService(this);
 //....
 btnEvent.setOnClickListener(v -> {
+    // get meal whose id is 53047
     mealService.getMealById("53047", new RequestListener<MealModel>() {
         @Override
         public void onError(String message) {
@@ -84,6 +85,7 @@ btnEvent.setOnClickListener(v -> {
         }
     });
 
+    // get all the meals
     mealService.getMeals(new RequestListener<ArrayList<MealModel>>() {
         @Override
         public void onError(String message) {
@@ -97,6 +99,19 @@ btnEvent.setOnClickListener(v -> {
                 Log.e("Volley", "Error while parsing response");
                 throw new RuntimeException(e);
             }
+        }
+    });
+    
+    // get search results for "couscous"
+    mealService.getMealsBySearch("couscous", new RequestListener<ArrayList<MealModel>>() {
+        @Override
+        public void onError(String message) {
+            Log.e("Volley", "Something went wrong when searching for meals.");
+        }
+
+        @Override
+        public void onResponse(ArrayList<MealModel> response) {
+            Log.d("Volley", response.toString());
         }
     });
 });

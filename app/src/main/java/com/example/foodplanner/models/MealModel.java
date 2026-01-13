@@ -19,7 +19,7 @@ public class MealModel {
     private final String ytVideo;
 
 
-    public MealModel(String id, String name, String category, String area, ArrayList<String> tags, String instructions, HashMap<String, String> ingredients, int calories, int fats, int carbs, int proteins, String photo, String ytvideo) {
+    public MealModel(String id, String name, String category, String area, ArrayList<String> tags, String instructions, HashMap<String, String> ingredients, int calories, int fats, int carbs, int proteins, String photo, String ytVideo) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -32,7 +32,7 @@ public class MealModel {
         this.carbs = carbs;
         this.proteins = proteins;
         this.photo = photo;
-        this.ytVideo = ytvideo;
+        this.ytVideo = ytVideo;
     }
 
     public String getId() {
@@ -102,7 +102,7 @@ public class MealModel {
                 ", carbs=" + carbs +
                 ", proteins=" + proteins +
                 ", photo='" + photo + '\'' +
-                ", ytvideo='" + ytVideo + '\'' +
+                ", ytVideo='" + ytVideo + '\'' +
                 '}';
     }
 }

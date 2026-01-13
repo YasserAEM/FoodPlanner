@@ -4,12 +4,20 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class PreferencesActivity extends AppCompatActivity {
 
@@ -37,11 +45,26 @@ public class PreferencesActivity extends AppCompatActivity {
             addChip(pref);
         }
 
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+
         btnFinish.setOnClickListener(v -> {
-            Toast.makeText(this, "Compte créé avec succès !", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(PreferencesActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+
+            fAuth.createUserWithEmailAndPassword(UserCache.email, UserCache.password).addOnCompleteListener(
+                (@NonNull Task<AuthResult> task) -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(PreferencesActivity.this, "Compte créé avec succès !", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(PreferencesActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        Log.d("Firebase", "Compte créé avec succès: " + UserCache.email + " " + UserCache.password);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(PreferencesActivity.this, "Erreur lors de la création du compte", Toast.LENGTH_LONG).show();
+                        Log.e("Firebase", "Erreur lors de la création du compte: " + task.getException().getMessage());
+                        Log.d("Firebase", "Credentials: " + UserCache.email + " " + UserCache.password);
+                    }
+                });
+
         });
     }
 

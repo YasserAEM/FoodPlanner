@@ -22,8 +22,8 @@ import java.util.Map;
 public class MealService {
 
     public static final String BASE_URL_ID = "https://foodplanner-hvbpgzexdmbjexha.switzerlandnorth-01.azurewebsites.net/api/meals/id/";
-    public static final String BASE_URL_SEARCH = "";
-    public static final String BASE_URL_ALL = "https://foodplanner-hvbpgzexdmbjexha.switzerlandnorth-01.azurewebsites.net/api/meals/";
+    public static final String BASE_URL_SEARCH = "https://foodplanner-hvbpgzexdmbjexha.switzerlandnorth-01.azurewebsites.net/api/meals?q=";
+    public static final String BASE_URL_ALL = "https://foodplanner-hvbpgzexdmbjexha.switzerlandnorth-01.azurewebsites.net/api/meals";
 
     private Context context;
 
@@ -34,54 +34,58 @@ public class MealService {
     public void getMealById(String id, RequestListener<MealModel> listener) {
         String url = BASE_URL_ID + id;
 
-        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            listener.onResponse(MealService.toMeal(response));
-                        } catch (JSONException e) {
-                            Log.e("Volley", "Error while parsing response: " + response);
-                            throw new RuntimeException(e);
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    listener.onError("Error while requesting meal by ID");
-                    Log.e("Volley", "That didn't work!");
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+            (JSONObject response) -> {
+                try {
+                    listener.onResponse(MealService.toMeal(response));
+                } catch (JSONException e) {
+                    Log.e("Volley", "Error while parsing response: " + response);
+                    throw new RuntimeException(e);
                 }
+            },
+            (VolleyError error) -> {
+                listener.onError("Error while requesting meal by ID");
+                Log.e("Volley", "That didn't work!");
             });
 
-        RequestQueueSingleton.getInstance(context).addToRequestQueue(stringRequest);
+        RequestQueueSingleton.getInstance(context).addToRequestQueue(request);
     }
 
     public void getMeals(RequestListener<ArrayList<MealModel>> listener) {
-        JsonArrayRequest stringRequest = new JsonArrayRequest(Request.Method.GET, BASE_URL_ALL, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        try {
-                            listener.onResponse(MealService.toMeals(response));
-                        } catch (JSONException e) {
-                            Log.e("Volley", "Error while parsing response: " + response);
-                            throw new RuntimeException(e);
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, BASE_URL_ALL, null,
+            (JSONArray response) -> {
+                try {
+                    listener.onResponse(MealService.toMeals(response));
+                } catch (JSONException e) {
+                    Log.e("Volley", "Error while parsing response: " + response);
+                    throw new RuntimeException(e);
+                }
+            },
+            (VolleyError error) -> {
                 listener.onError("Error while requesting meals");
                 Log.e("Volley", "That didn't work!");
-            }
-        });
+            });
 
-        RequestQueueSingleton.getInstance(context).addToRequestQueue(stringRequest);
+        RequestQueueSingleton.getInstance(context).addToRequestQueue(request);
     }
 
-    public void getMealsBySearch(String search, RequestListener<JSONArray> listener) {
-        String url = BASE_URL_SEARCH + search;
-        // TODO
+    public void getMealsBySearch(String searchQuery, RequestListener<ArrayList<MealModel>> listener) {
+        String url = BASE_URL_SEARCH + searchQuery;
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+            (JSONArray response) -> {
+                try {
+                    listener.onResponse(MealService.toMeals(response));
+                } catch (JSONException e) {
+                    Log.e("Volley", "Error while parsing response: " + response);
+                    throw new RuntimeException(e);
+                }
+            },
+            (VolleyError error) -> {
+                listener.onError("Error while requesting meals");
+                Log.e("Volley", "That didn't work!");
+            });
+
+        RequestQueueSingleton.getInstance(context).addToRequestQueue(request);
     }
 
     private static MealModel toMeal(JSONObject response) throws JSONException {
