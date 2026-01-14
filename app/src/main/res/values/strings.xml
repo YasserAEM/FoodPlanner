@@ -2,8 +2,10 @@
     <string name="appName">WeeklyBite</string>
     <string name="slogan">Moins de stress, plus de saveurs.</string>
     <string name="connexion">Se connecter</string>
-    <string name="inscription">Pas de compte ? S\'inscrire</string>
+    <string name="inscription">S\'inscrire</string>
     <string name="tvInscription">Créer un compte</string>
+    <string name="password">Mot de passe</string>
+    <string name="pasDeCompte">Pas de compte ?</string>
     <string-array name="ingredients_list">
         <item>Ackee</item>
         <item>All purpose flour</item>

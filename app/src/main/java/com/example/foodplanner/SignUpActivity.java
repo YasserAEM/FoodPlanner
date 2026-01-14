@@ -30,8 +30,12 @@ public class SignUpActivity extends AppCompatActivity {
 
             if (user.isEmpty() || mail.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(SignUpActivity.this, "Veuillez tout remplir", Toast.LENGTH_SHORT).show();
+
+            } else if (pass.length() < 6) {
+                etPassword.setError("Le mot de passe doit faire au moins 6 caractères");
+                etPassword.requestFocus(); // Remet le focus sur la case mot de passe
+
             } else {
-                // Sauvegarde dans le Cache
                 UserCache.username = user;
                 UserCache.email = mail;
                 UserCache.password = pass;
