@@ -49,8 +49,8 @@
 
             <ImageView
                 android:id="@+id/ivCloseDetails"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_close_small"
                 app:tint="@color/black" />
@@ -174,14 +174,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:backgroundTint="@android:color/transparent"
-            android:text="Voir sur YouTube →"
+            android:text="Voir sur YouTube ->"
             android:textColor="@color/darkGreen"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:padding="0dp"
-            android:minHeight="0dp"
-            android:minWidth="0dp" />
+
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
