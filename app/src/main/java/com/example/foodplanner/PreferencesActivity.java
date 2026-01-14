@@ -89,8 +89,11 @@ public class PreferencesActivity extends AppCompatActivity {
         chip.setText(text);
         chip.setCheckable(true);
         chip.setClickable(true);
-        chip.setTextSize(16f);
-        chip.setChipMinHeight(50.0f);
+        chip.setTextSize(14f);
+
+        chip.setChipMinHeight(32f);
+        chip.setTextStartPadding(12f);
+        chip.setTextEndPadding(12f);
 
         int[][] states = new int[][] {
                 new int[] { android.R.attr.state_checked },
@@ -101,16 +104,18 @@ public class PreferencesActivity extends AppCompatActivity {
         int[] textColors = new int[] { Color.WHITE, Color.BLACK };
         chip.setTextColor(new ColorStateList(states, textColors));
 
-        chip.setCloseIconVisible(true);
-        chip.setCloseIconResource(R.drawable.ic_add_small);
+
+        chip.setCloseIconVisible(false);
+
+        chip.setCloseIconTint(ColorStateList.valueOf(Color.BLACK));
 
         chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 UserCache.preferences.add(text);
-                chip.setCloseIconResource(R.drawable.ic_close_small);
+                chip.setCloseIconTint(ColorStateList.valueOf(Color.WHITE));
             } else {
                 UserCache.preferences.remove(text);
-                chip.setCloseIconResource(R.drawable.ic_add_small);
+                chip.setCloseIconTint(ColorStateList.valueOf(Color.BLACK));
             }
         });
 

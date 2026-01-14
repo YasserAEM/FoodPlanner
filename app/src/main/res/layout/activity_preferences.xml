@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
     android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:backgroundTint="#E0E0E0"
+        android:progress="80"
+        android:progressTint="#1B5E20"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:padding="24dp">
+        android:padding="24dp"
+        tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
             android:layout_width="120dp"
@@ -34,7 +51,7 @@
             android:fontFamily="@font/playfair_display"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:textColor="#1B5E20"
+            android:textColor="@color/darkGreen"
             android:layout_marginTop="24dp"/>
 
         <TextView
@@ -49,9 +66,9 @@
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroupPreferences"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:chipSpacing="10dp"
+            app:chipSpacing="7dp"
             app:singleLine="false">
 
         </com.google.android.material.chip.ChipGroup>
@@ -71,4 +88,5 @@
             android:layout_marginTop="24dp"/>
 
     </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
