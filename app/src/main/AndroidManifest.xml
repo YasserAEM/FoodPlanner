@@ -14,31 +14,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodPlanner"
         tools:targetApi="36">
-
+        <activity
+            android:name=".MealsActivity"
+            android:exported="false" />
         <activity
             android:name=".GetStartedActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".LoginActivity" />
         <activity android:name=".GenderActivity" />
         <activity android:name=".MetricsActivity" />
         <activity android:name=".RestrictionsActivity" />
         <activity android:name=".PreferencesActivity" />
-
         <activity
             android:name=".MainActivity"
             android:exported="false" />
