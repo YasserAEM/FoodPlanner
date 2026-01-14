@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#F1F3E9"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:alignmentMode="alignMargins"
+                    android:columnOrderPreserved="false">
+
+                    <!-- Username -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nom d'utilisateur"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp"/>
+                        <EditText
+                            android:id="@+id/etProfileUsername"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_nav_item"
+                            android:paddingHorizontal="12dp"
+                            android:inputType="text"/>
+                    </LinearLayout>
+
+                    <!-- Email -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp"/>
+                        <EditText
+                            android:id="@+id/etProfileEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_nav_item"
+                            android:paddingHorizontal="12dp"
+                            android:inputType="textEmailAddress"/>
+                    </LinearLayout>
+
+                    <!-- Password -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mot de passe"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp"/>
+                        <EditText
+                            android:id="@+id/etProfilePassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_nav_item"
+                            android:paddingHorizontal="12dp"
+                            android:inputType="textPassword"
+                            android:text="••••"/>
+                    </LinearLayout>
+
+                    <!-- Weight -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Poids (kg)"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp"/>
+                        <EditText
+                            android:id="@+id/etProfileWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_nav_item"
+                            android:paddingHorizontal="12dp"
+                            android:inputType="numberDecimal"/>
+                    </LinearLayout>
+
+                    <!-- Height -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Taille (cm)"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp"/>
+                        <EditText
+                            android:id="@+id/etProfileHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_nav_item"
+                            android:paddingHorizontal="12dp"
+                            android:inputType="number"/>
+                    </LinearLayout>
+                </GridLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restrictions (Allergies)"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Allergies List -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    
+                    <CheckBox android:id="@+id/cbLait" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lait" android:drawableStart="@drawable/ic_dairy" android:drawablePadding="8dp" android:buttonTint="@color/green" android:drawableTint="@null"/>
+                    <CheckBox android:id="@+id/cbGluten" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gluten" android:drawableStart="@drawable/ic_gluten" android:drawablePadding="8dp" android:buttonTint="@color/green" android:drawableTint="@null"/>
+                    <CheckBox android:id="@+id/cbOeufs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Oeufs" android:drawableStart="@drawable/ic_egg" android:drawablePadding="8dp" android:buttonTint="@color/green" android:drawableTint="@null"/>
+                    <CheckBox android:id="@+id/cbSoy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Soy" android:drawableStart="@drawable/ic_soy" android:drawablePadding="8dp" android:buttonTint="@color/green" android:drawableTint="@null"/>
+                    <CheckBox android:id="@+id/cbPeanuts" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Peanuts" android:drawableStart="@drawable/ic_peanut" android:drawablePadding="8dp" android:buttonTint="@color/green" android:drawableTint="@null"/>
+                    <CheckBox android:id="@+id/cbPoisson" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Poisson" android:drawableStart="@drawable/ic_poisson" android:drawablePadding="8dp" android:buttonTint="@color/green" android:drawableTint="@null"/>
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_nav_item"
+                    android:hint="Rechercher une allergie..."
+                    android:paddingHorizontal="16dp"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Préférences culinaires"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cgPreferences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacing="8dp">
+                    <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aucune +" style="@style/Widget.Material3.Chip.Filter" app:chipBackgroundColor="@color/white" app:chipStrokeColor="#E0E0E0"/>
+                    <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Beef +" style="@style/Widget.Material3.Chip.Filter" app:chipBackgroundColor="@color/white" app:chipStrokeColor="#E0E0E0"/>
+                    <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Breakfast +" style="@style/Widget.Material3.Chip.Filter" app:chipBackgroundColor="@color/white" app:chipStrokeColor="#E0E0E0"/>
+                    <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Chicken +" style="@style/Widget.Material3.Chip.Filter" app:chipBackgroundColor="@color/white" app:chipStrokeColor="#E0E0E0"/>
+                    <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dessert +" style="@style/Widget.Material3.Chip.Filter" app:chipBackgroundColor="@color/white" app:chipStrokeColor="#E0E0E0"/>
+                    <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Goat +" style="@style/Widget.Material3.Chip.Filter" app:chipBackgroundColor="@color/white" app:chipStrokeColor="#E0E0E0"/>
+                    <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lamb +" style="@style/Widget.Material3.Chip.Filter" app:chipBackgroundColor="@color/white" app:chipStrokeColor="#E0E0E0"/>
+                </com.google.android.material.chip.ChipGroup>
+
+                <Button
+                    android:id="@+id/btnSaveProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="32dp"
+                    android:backgroundTint="@color/darkGreen"
+                    android:text="Sauvegarder les modifications"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="28dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
