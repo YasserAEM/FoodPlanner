@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         // Setup Logout
         findViewById(R.id.btnLogout).setOnClickListener(v -> {
             fAuth.signOut();
+            UserCache.weeklyPlan = new HashMap<>();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
         });
