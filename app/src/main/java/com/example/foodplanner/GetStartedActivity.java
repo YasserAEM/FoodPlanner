@@ -20,6 +20,8 @@ public class GetStartedActivity extends AppCompatActivity {
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         if (fAuth.getCurrentUser() != null) {
             Intent intent = new Intent(GetStartedActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         setContentView(R.layout.activity_start);

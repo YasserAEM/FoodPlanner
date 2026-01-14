@@ -15,11 +15,11 @@
         android:padding="16dp">
 
         <ImageView
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:src="@drawable/weeklybite"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
             android:scaleType="centerInside"
-            android:layout_alignParentStart="true"/>
+            android:src="@drawable/weeklybite_icon" />
 
         <LinearLayout
             android:id="@+id/btnLogout"
