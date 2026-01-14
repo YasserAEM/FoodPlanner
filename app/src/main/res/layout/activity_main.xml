@@ -180,12 +180,12 @@
             android:clipToPadding="false"
             android:paddingBottom="16dp"/>
 
-        <include
-            android:id="@+id/profileLayout"
-            layout="@layout/layout_profile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"/>
+<!--        <include-->
+<!--            android:id="@+id/profileLayout"-->
+<!--            layout="@layout/layout_profile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:visibility="gone"/>-->
     </FrameLayout>
 
 </LinearLayout>

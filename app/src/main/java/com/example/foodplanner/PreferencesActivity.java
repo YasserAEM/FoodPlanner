@@ -74,11 +74,11 @@ public class PreferencesActivity extends AppCompatActivity {
 
         chip.setCheckable(true);
         chip.setClickable(true);
-        chip.setTextSize(16f);
+        chip.setTextSize(14f);
 
-        chip.setChipMinHeight(50.0f);
-        chip.setTextStartPadding(20f);
-        chip.setTextEndPadding(10f);
+        chip.setChipMinHeight(32f);
+        chip.setTextStartPadding(12f);
+        chip.setTextEndPadding(12f);
 
 
         int[][] states = new int[][] {
@@ -99,22 +99,19 @@ public class PreferencesActivity extends AppCompatActivity {
         chip.setTextColor(new ColorStateList(states, textColors));
 
 
-        chip.setCloseIconVisible(true);
+        chip.setCloseIconVisible(false);
 
-        chip.setCloseIconResource(R.drawable.ic_add_small);
         chip.setCloseIconTint(ColorStateList.valueOf(Color.BLACK));
 
         chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // DEVIENT SÉLECTIONNÉ
                 UserCache.preferences.add(text);
-                chip.setCloseIconResource(R.drawable.ic_close_small); // Devient une croix
-                chip.setCloseIconTint(ColorStateList.valueOf(Color.WHITE)); // Croix blanche
+                chip.setCloseIconTint(ColorStateList.valueOf(Color.WHITE));
             } else {
                 // DEVIENT DÉSÉLECTIONNÉ
                 UserCache.preferences.remove(text);
-                chip.setCloseIconResource(R.drawable.ic_add_small); // Redevient un plus
-                chip.setCloseIconTint(ColorStateList.valueOf(Color.BLACK)); // Plus noir
+                chip.setCloseIconTint(ColorStateList.valueOf(Color.BLACK));
             }
         });
 

@@ -66,7 +66,7 @@
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroupPreferences"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:chipSpacing="7dp"
             app:singleLine="false">
