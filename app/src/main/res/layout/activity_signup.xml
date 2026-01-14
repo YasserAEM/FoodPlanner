@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Créer un compte"
         android:fontFamily="@font/playfair_display"
-        android:textColor="#1B5E20"
+        android:textColor="@color/green"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginBottom="32dp"
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Suivant"
-        android:backgroundTint="#1B5E20"
+        android:backgroundTint="@color/green"
         android:textColor="#FFFFFF"
         android:textSize="18sp"/>
 

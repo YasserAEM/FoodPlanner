@@ -16,9 +16,9 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="6dp"
+            android:backgroundTint="#E0E0E0"
             android:progress="60"
             android:progressTint="#1B5E20"
-            android:backgroundTint="#E0E0E0"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:fontFamily="@font/playfair_display"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="@color/darkGreen"
             android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
